@@ -6,10 +6,10 @@ const con = mysql.createConnection({
     password: "",
 })
 
-try{
-    con.connect();
-} catch(e){
-    e ? console.log(e) : null;
-    // process.exit(1);
-}
+// try{
+//     con.connect((err)=>console.log(err));
+// } catch(err: any){
+//     console.log(err);
+// }
+
 export default con;

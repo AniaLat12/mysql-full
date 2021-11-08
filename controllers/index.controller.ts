@@ -2,8 +2,17 @@ import con from '../database/conection'
 
 class API{
     async main(req: any, res: any): Promise<any> {
-        con.query("show databases", (err: any, dbs: any)=>{
-                res.status(200).json({dbs})
+        con.connect((err)=>{
+            // console.log(err);
+        });
+        con.on("error", (err: any) => {
+            console.log(err);
+            // con.connect();
+        })
+
+        await con.query("show databases", async (err: any, dbs: any)=>{
+            if(err) return res.status(401).json({err})
+            res.status(200).json({dbs})
         })
     }
 

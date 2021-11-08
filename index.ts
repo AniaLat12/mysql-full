@@ -6,6 +6,8 @@ const
     app     = express(),
     port    = 3000;
 
+// add connecton configuration
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));

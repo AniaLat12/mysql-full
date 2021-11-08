@@ -221,7 +221,7 @@
         If error is returned, you should contact 
          with server administrator.
       </p>
-      <button type="submit">Restart page.</button>
+      <button type="submit"><a href="/">Restart page.</a></button>
     </div>
   </div>
 </div>
@@ -275,6 +275,7 @@ export default {
         this.res = res
         this.databases = res.data.dbs
         this.query = res.data.query
+        console.log(res);
       })
     },
     async useDb(v){
@@ -537,7 +538,6 @@ main{
 
 nav ul svg{
     height: 24px;
-    display: inline-block;
     float: right;
 }
 
@@ -720,7 +720,7 @@ table svg{
 }
 
 .error .box {
-  padding: 5px;
+  padding: 20px;
   background: #1A1818;
   height: 25vh;
   width: 20%;
@@ -728,6 +728,7 @@ table svg{
   top: 30%;
   left: 50%;
   transform: translate(-50%);
+  border-radius: 1rem;
 }
 
 .error-text{
@@ -735,10 +736,11 @@ table svg{
 }
 
 .error button{
-  background:rgb(102, 135, 224);
+  background:#fff;
+  border-radius: .5rem;
   border: none;
   padding: 2px;
-  font-size: 16px;
+  font-size: 15px;
   position: relative;
   left: 60%;
   bottom: 0;
