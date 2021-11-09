@@ -1,21 +1,34 @@
-import con from '../database/conection'
+// import con from '../database/conection'
+import mysql from 'mysql';
+
+function getConnection(user?: string, host?: string, password?: string){
+    let con = mysql.createConnection({
+        host: 'localhost' || host, 
+        user: 'root' || user, 
+        password: "" || password
+    });
+    con.connect(function(err: any){
+        if(err) console.log(err);
+        console.log("Connected");
+        return con;
+    })
+    return con;
+}
+
+let con = getConnection();
 
 class API{
     async main(req: any, res: any): Promise<any> {
-        con.connect((err)=>{
-            // console.log(err);
-        });
-        con.on("error", (err: any) => {
-            console.log(err);
-            // con.connect();
-        })
-
+        if(req.query.make){
+            con.end();
+            con = getConnection("a763", 'localhost', "6DD8_ef4e44");           
+        }
         await con.query("show databases", async (err: any, dbs: any)=>{
             if(err) return res.status(401).json({err})
             res.status(200).json({dbs})
         })
     }
-
+    
     async tables(req: any, res: any): Promise<any> {
         con.query(`use ${req.params.db}`, (err: any, d: any)=>{
             con.query(`show tables`, (err: any, tables: any)=>{

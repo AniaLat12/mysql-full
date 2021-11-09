@@ -1,15 +1,10 @@
 import mysql from 'mysql';
 
 const con = mysql.createConnection({
-    host: 'localhost',
+    host: "localhost",
     user: "root",
     password: "",
 })
-
-// try{
-//     con.connect((err)=>console.log(err));
-// } catch(err: any){
-//     console.log(err);
-// }
+con.connect((err)=>err?console.error(err):[]);
 
 export default con;

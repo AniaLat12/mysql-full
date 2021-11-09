@@ -1,12 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import router from './routes/index.router';
-import morgan from 'morgan';
 const 
     app     = express(),
     port    = 3000;
-
-// add connecton configuration
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -14,6 +11,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
 app.use("/", router);
-app.use(morgan("dev"));
 app.use(()=>import("./middleware/cors.middleware"));
+app.use(()=>import("./middleware/logger.midleware"));
 app.listen(port, () => console.log(`listen ${port}!`));

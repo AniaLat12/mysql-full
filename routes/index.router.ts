@@ -1,6 +1,7 @@
 import controller from "../controllers/index.controller"
 import express from 'express';
 const router = express.Router();
+// router.use(()=>import("../middleware/logger.midleware"));
 
 router.get("/", controller.main);
 router.get("/db/:db", controller.tables);
