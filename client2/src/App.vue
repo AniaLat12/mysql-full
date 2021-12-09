@@ -182,13 +182,6 @@
 
             <!-- FOREIGN KEY -->
             <p>With:</p>
-            <!-- <label>Database: </label>
-            <select name="foreignDb" v-model="foreignDb" @change="getForeignTables()">
-              <option>--Foreign db--</option>
-              <option v-for="db in databases" :key="db.Database" :value="db.Database">
-                {{ db.Database }}
-              </option>
-            </select> -->
 
             <label>Table: </label>
             <select name="foreigntable" @change="getForeignRows()" v-model="foreignTable">
@@ -418,7 +411,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
 
-/* SCROLL BAR STYKES */
+/* SCROLL BAR STYLES */
 ::-webkit-scrollbar{
   width: 10px;
   background-color: white;

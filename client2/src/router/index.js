@@ -1,19 +1,20 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
   {
-    path: '/',
-    name: 'Home'
+    path: "/",
+    name: "Home",
   },
   {
-    path: '/about',
-    name: 'About'
-  }
-]
+    path: "/about",
+    name: "About",
+  },
+];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
-})
+  mode: process.env.IS_ELECTRON ? "hash" : "history",
+  routes,
+});
 
-export default router
+export default router;
